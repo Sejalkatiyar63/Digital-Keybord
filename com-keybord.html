@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="second.css">
+    <title>Stopw-Watch</title>
+</head>
+    <style>
+        *{
+            margin: 0;  
+            padding: 0;
+            font-weight: 700;
+        box-sizing: border-box;
+            outline: none;
+            cursor: pointer;
+             }
+        body{
+            background-color:#a3b1c6; display: flex;
+            height: 100vh;align-items: center;justify-content: center;
+        }
+        .container{
+            width: 950px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 800px;
+            position: absolute;
+            
+        }
+        .monitor{
+            height: 220px;
+            width: 600px;
+            background-color:#a3b1c6;
+            position:absolute;
+            border: 10px solid #a3b1c6;
+           top: 15vh;
+           box-shadow: 8px 8px 15px rgba(0,0,0,0.3),-8px -8px 15px rgba(245,345,245,0.25),8px 8px 15px rgba(0,0,0,0.25) inset;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 30px;
+            
+            
+        }
+        .keybord{
+            height: 350px;
+            width: 850px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3),-8px -8px 15px rgba(245,245,245,0.25);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 10px;
+            border-radius: 20px;
+            top: 22vh;
+        }
+        
+        .keybord input{
+            height: 60px;
+            width: 60px;
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.3),-5px -5px 10px rgba(245,245,245,0.25);
+             border: 5px solid #a3b1c6;
+            margin: 5px;
+            border-radius: 10px;
+            background-color:#a3b1c6;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .keybord input:focus{
+             color: white;
+             box-shadow: 3px 3px 15px rgba(0,0,0,0.3),-5px -5px 10px rgba(245,245,245,0.25), 5px 5px 15px rgba(0,0,0,0.25)inset;
+        }
+        .keybord .spacebar{
+            width: 300px;
+        }
+        .keybord .backspace{
+             width: 120px;
+            font-size: 19px;
+        }
+    </style>
+    <body>
+        <form class="container">
+            <input type="text" name="input" class="monitor">
+            <div class="keybord" id="keybord">
+            <div class="keys">
+                <input type="button" value="Q"> 
+                  <input type="button" value="W"> 
+                  <input type="button" value="E"> 
+                <input type="button" value="R"> 
+                  <input type="button" value="T"> 
+                  <input type="button" value="Y"> 
+                <input type="button" value="U"> 
+                  <input type="button" value="I"> 
+                  <input type="button" value="O"> 
+                 <input type="button" value="P"> 
+                
+                
+                
+                </div>
+                 <div class="keys">
+                <input type="button" value="A"> 
+                  <input type="button" value="S"> 
+                  <input type="button" value="D"> 
+                <input type="button" value="R"> 
+                  <input type="button" value="F"> 
+                  <input type="button" value="G"> 
+                <input type="button" value="H"> 
+                  <input type="button" value="J"> 
+                  <input type="button" value="K"> 
+                 <input type="button" value="L"> 
+                
+                
+                
+                </div>
+                 <div class="keys">
+                <input type="button" value="Z"> 
+                  <input type="button" value="X"> 
+                  <input type="button" value="C"> 
+                <input type="button" value="V"> 
+                  <input type="button" value="B"> 
+                  <input type="button" value="N"> 
+                <input type="button" value="M"> 
+                  <input type="button" class="backspace" value="Backspace"> 
+                 
+                
+                
+                
+                </div>
+                
+                 <input type="button" class="spacebar" name="space"> 
+            
+            </div>
+        </form>
+    </body>
+   <script>
+    document.getElementById('keybord').addEventListener('click', function(e){
+        if (e.target.tagName === 'INPUT' && e.target.type === 'button') {
+            const inputField = document.querySelector('.monitor');
+            if (e.target.classList.contains('backspace')) {
+                inputField.value = inputField.value.slice(0, -1);
+            } else if (e.target.classList.contains('spacebar')) {
+                inputField.value += " ";
+            } else {
+                inputField.value += e.target.value;
+            }
+        }
+    });
+</script>
+</html>
